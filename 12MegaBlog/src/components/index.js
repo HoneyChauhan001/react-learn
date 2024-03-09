@@ -13,10 +13,6 @@ import PostCard from "./PostCard";
 import Select from "./Select";
 import PostForm from "./post-form/PostForm";
 
-
-
-
-
 export {
     Header,
     Footer,

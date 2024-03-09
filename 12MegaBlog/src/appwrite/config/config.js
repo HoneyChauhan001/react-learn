@@ -15,6 +15,7 @@ export  class Service{
     }
 
     async createPost({title, slug, content, featuredImage, status, userId}){
+        console.log(title, slug, content, featuredImage, status, userId)
         try {
             return await this.databases.createDocument(
                 conf.appWriteDatabaseId,
@@ -44,8 +45,7 @@ export  class Service{
                     title,
                     content,
                     featuredImage,
-                    status,
-                    userId
+                    status
                 }
             )
         } catch (error) {
@@ -83,20 +83,33 @@ export  class Service{
         }
     }
 
-    async getPosts(queries = [Query.equal("status","active")]){
+    //TODO: add query to get active posts only
+    async getPosts(){
         try {
             return await this.databases.listDocuments(
                 conf.appWriteDatabaseId,
-                conf.appWriteCollectionId,
-                queries
+                conf.appWriteCollectionId
             )
-            
         } catch (error) {
-            console.log("Appwrite service :: getPosts :: error"
-            ,error);
-            return false;
+            console.log("Appwrite serive :: getPosts :: error", error);
+            return false
         }
     }
+
+    // async getPosts(){
+    //     try {
+    //         return await this.databases.listDocuments(
+    //             conf.appWriteDatabaseId,
+    //             conf.appWriteCollectionId
+    //         )
+            
+    //     } catch (error) {
+    //         console.log("Appwrite service :: getPosts :: error"
+    //         ,error);
+    //         console.log(error)
+    //         return false;
+    //     }
+    // }
 
     // file upload service/method --> create different service for this
     
