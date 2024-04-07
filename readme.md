@@ -1,6 +1,6 @@
-# React Application
+# React Projects
 
-### This a repository containing more than 10 web application created while I was learning Reactjs
+### This a repository containing more than 10 React projects created while I was learning Reactjs
 ### Learned some of the most important libraries and tools such as :
 - Tailwind css
 - React Hooks
